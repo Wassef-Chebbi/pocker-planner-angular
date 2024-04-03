@@ -1,0 +1,64 @@
+
+.wrapper {
+  display: flex; /* Center content horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Fill the viewport height */
+  background-color: #f5f5f5; /* Light background for better contrast */
+  padding: 20px; /* Add some breathing room around the content */
+  margin: 40px;
+}
+
+.example-card {
+  max-width: 500px; /* Consistent max-width for responsiveness */
+  margin: 0 auto; /* Center the card horizontally within the wrapper */
+  padding: 20px; /* Consistent padding for content within the card */
+  border-radius: 8px; /* Maintain rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #fff; /* White background for content clarity */
+  margin: 30px;
+  display: grid;
+}
+
+mat-card-header {
+    display: flex; /* Align header content horizontally */
+    justify-content: space-between; /* Space out header content */
+    align-items: center; /* Vertically align header content */
+    margin-bottom: 15px; /* Consistent margin for better spacing */
+}
+
+mat-card-content {
+    display: grid; /* Align content in a grid layout */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 15px; /* Consistent gap between elements */
+    
+}
+
+mat-form-field {
+  width: 100%; /* Consistent full-width for form elements */
+  margin: 15px; /* Consistent margin for better spacing */
+  appearance:fill;
+}
+
+mat-checkbox {
+  display: flex; /* Allow alignment with checkbox label */
+  align-items: center; /* Vertically align checkbox with label */
+  margin-top: 5px; /* Consistent margin */
+}
+
+mat-icon {
+  cursor: pointer; /* Maintain pointer cursor for interactive elements */
+  font-size: 20px; /* Consider increasing icon size for better visibility */
+  color: #2196f3; /* Match primary color for consistency */
+}
+
+button {
+  margin-top: 15px; /* Consistent margin for better spacing */
+  padding: 10px 20px; /* Consistent padding for button size */
+  border: none; /* Remove default border for cleaner look */
+  border-radius: 4px; /* Rounded corners for buttons */
+  background-color: #2196f3; /* Primary color for buttons */
+  color: white; /* Maintain white text for contrast */
+  font-weight: bold; /* Emphasize button text */
+  cursor: pointer; /* Maintain pointer cursor for interactivity */
+}
