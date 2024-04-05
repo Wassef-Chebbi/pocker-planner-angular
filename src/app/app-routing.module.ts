@@ -17,9 +17,13 @@ import { EditSessionComponent } from './dashboard/editsession/editsession.compon
 import { CreateSessionComponent } from './pocker-planner/create-session/create-session.component';
 import { JoinSessionComponent } from './pocker-planner/join-session/join-session.component';
 import { SessionComponent } from './pocker-planner/session/session.component';
+import { PockerPlannerComponent } from './pocker-planner/pocker-planner.component';
 
 const routes: Routes = [
-  { path: '', component: FrontComponent },
+  {
+    path: '',
+    component: FrontComponent
+  },
   { path: 'reclamation', component: ReclamationComponent },/////////
   { path: 'sign-in', component: SignInComponent },
   { path: 'register', component: RegisterComponent },
@@ -27,11 +31,15 @@ const routes: Routes = [
   { path: 'dashboard', component: HomeDashComponent },
   { path: 'list-sessions', component: ListSessionComponent },
   { path: 'edit-session/:id', component: EditSessionComponent },
+  {
+    path: 'pocker',
+    loadChildren: () =>
+      import('./pocker-planner/pocker-planner.module').then((m) => m.PockerPlannerModule),
 
-
-  { path: 'create', component: CreateSessionComponent },
-  { path: 'join', component: JoinSessionComponent },
-  { path: 'session', component: SessionComponent }
+  },
+  // { path: 'create', component: CreateSessionComponent },
+  // { path: 'join', component: JoinSessionComponent },
+  // { path: 'session', component: SessionComponent }
 ];
 
 

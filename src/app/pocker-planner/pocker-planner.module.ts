@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { CreateSessionComponent } from './create-session/create-session.component';
 
 import { MaterialModule } from '../material.module';
@@ -19,12 +20,15 @@ import { PockerPlannerComponent } from './pocker-planner.component';
 
 
 
+
+
 @NgModule({
   declarations: [
     CreateSessionComponent,
     JoinSessionComponent,
     SessionComponent,
     PockerPlannerComponent
+
   ],
   imports: [
     CommonModule,
@@ -32,6 +36,8 @@ import { PockerPlannerComponent } from './pocker-planner.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+
+
 
     MatSelectModule
   ]

@@ -34,6 +34,7 @@ import { MaterialModule } from './material.module';
     SignInDashboardComponent,
 
 
+
     SidebarComponent,
     EditSessionComponent,
     ListSessionComponent,
@@ -43,10 +44,10 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    PockerPlannerModule
+    PockerPlannerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
