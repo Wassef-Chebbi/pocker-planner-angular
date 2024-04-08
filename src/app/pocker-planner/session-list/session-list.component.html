@@ -1,0 +1,56 @@
+<!-- <div class="col-xs-12 col-md-8 col-md-offset-2" style="margin: 20px">
+  <div class="session-header">
+    <span class="session-list left"><strong>Name</strong></span>
+    <span class="session-list center"><strong>Members</strong></span>
+    <span class="session-list right"><strong>Options</strong></span>
+  </div>
+  <div class="list-group">
+    <div class="list-group-item slim">
+      <div class="session-details">
+        <span class="session-list left"><strong>kkkk</strong></span>
+        <span class="session-list center"><strong>kkkk</strong></span>
+        <span class="session-list right">
+          <button type="button" class="btn btn-default">Open</button>
+          <button type="button" class="btn btn-default">Join</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div
+  class="col-xs-12 col-md-8 col-md-offset-2"
+  style="margin-left: auto; margin-right: auto"
+>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="session-list left"><strong>Name</strong></th>
+        <th class="session-list center"><strong>Members</strong></th>
+        <th class="session-list right"><strong>Options</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="session in list.sessions track by session.id">
+        <!-- put the ngIf derictive here inside an ng-container maybe -->
+        <td class="session-list left"><strong>trtrtr</strong></td>
+        <td class="session-list center"><strong>yryryr</strong></td>
+        <td class="session-list right">
+          <button
+            type="button"
+            class="btn btn-primary"
+            ng-click="list.open(session)"
+          >
+            Open
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            ng-click="list.join(session)"
+          >
+            Join
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

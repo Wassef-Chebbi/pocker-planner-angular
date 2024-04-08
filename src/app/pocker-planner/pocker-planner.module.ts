@@ -10,6 +10,7 @@ import { PockerPlannerRoutingModule } from './pocker-planner-routing.module';
 import { JoinSessionComponent } from './join-session/join-session.component';
 import { SessionComponent } from './session/session.component';
 import { PockerPlannerComponent } from './pocker-planner.component';
+import { SessionListComponent } from './session-list/session-list.component';
 
 
 
@@ -27,7 +28,8 @@ import { PockerPlannerComponent } from './pocker-planner.component';
     CreateSessionComponent,
     JoinSessionComponent,
     SessionComponent,
-    PockerPlannerComponent
+    PockerPlannerComponent,
+    SessionListComponent
 
   ],
   imports: [

@@ -6,6 +6,7 @@ import { JoinSessionComponent } from './join-session/join-session.component';
 import { Session } from '../Models/session.model';
 import { SessionComponent } from './session/session.component';
 import { PockerPlannerComponent } from './pocker-planner.component';
+import { SessionListComponent } from './session-list/session-list.component';
 
 
 
@@ -23,8 +24,12 @@ const routes: Routes = [
         component: JoinSessionComponent,
       },
       {
-        path: 'session',
+        path: 'session/:id',
         component: SessionComponent,
+      },
+      {
+        path: 'sessions',
+        component: SessionListComponent,
       },
     ]
   },
