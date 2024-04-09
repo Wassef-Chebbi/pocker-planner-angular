@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { SignInDashboardComponent } from './dashboard/sign-in-dashboard/sign-in-dashboard.component';
 import { HomeDashComponent } from './dashboard/home-dash/home-dash.component';
 import { Session } from './Models/session.model';
-//import { SessionComponent } from './dashboard/session/session.component';
+
 import { ListSessionComponent } from './dashboard/list-session/list-session.component';
 import { EditSessionComponent } from './dashboard/editsession/editsession.component';
 
@@ -18,6 +18,8 @@ import { CreateSessionComponent } from './pocker-planner/create-session/create-s
 import { JoinSessionComponent } from './pocker-planner/join-session/join-session.component';
 import { SessionComponent } from './pocker-planner/session/session.component';
 import { PockerPlannerComponent } from './pocker-planner/pocker-planner.component';
+import { SessionListComponent } from './pocker-planner/session-list/session-list.component';
+import { PockerPlannerModule } from './pocker-planner/pocker-planner.module';
 
 const routes: Routes = [
   {
@@ -31,15 +33,7 @@ const routes: Routes = [
   { path: 'dashboard', component: HomeDashComponent },
   { path: 'list-sessions', component: ListSessionComponent },
   { path: 'edit-session/:id', component: EditSessionComponent },
-  {
-    path: 'pocker',
-    loadChildren: () =>
-      import('./pocker-planner/pocker-planner.module').then((m) => m.PockerPlannerModule),
 
-  },
-  // { path: 'create', component: CreateSessionComponent },
-  // { path: 'join', component: JoinSessionComponent },
-  // { path: 'session', component: SessionComponent }
 ];
 
 

@@ -19,6 +19,7 @@ import { EditSessionComponent } from './dashboard/editsession/editsession.compon
 import { ListSessionComponent } from './dashboard/list-session/list-session.component';
 import { PockerPlannerModule } from './pocker-planner/pocker-planner.module';
 import { MaterialModule } from './material.module';
+import { PockerPlannerRoutingModule } from './pocker-planner/pocker-planner-routing.module';
 
 
 @NgModule({
