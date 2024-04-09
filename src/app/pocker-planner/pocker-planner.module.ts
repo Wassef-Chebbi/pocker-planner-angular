@@ -11,14 +11,8 @@ import { JoinSessionComponent } from './join-session/join-session.component';
 import { SessionComponent } from './session/session.component';
 import { PockerPlannerComponent } from './pocker-planner.component';
 import { SessionListComponent } from './session-list/session-list.component';
-
-
-
-
-
-
-
-
+import { RouterModule } from '@angular/router';
+import { VoteComponent } from './vote/vote.component';
 
 
 
@@ -29,7 +23,8 @@ import { SessionListComponent } from './session-list/session-list.component';
     JoinSessionComponent,
     SessionComponent,
     PockerPlannerComponent,
-    SessionListComponent
+    SessionListComponent,
+    VoteComponent
 
   ],
   imports: [
@@ -38,10 +33,8 @@ import { SessionListComponent } from './session-list/session-list.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-
-
-
-    MatSelectModule
+    MatSelectModule,
+    RouterModule
   ]
 })
 export class PockerPlannerModule { }

@@ -1,0 +1,46 @@
+.card-button {
+  display: block;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.9s ease-in-out;
+  
+  border: 2px solid #0F1593;
+
+  
+  margin-left: auto;
+  margin-right: auto;
+  width: 135px;
+  height: 220px;
+}
+
+.card-button:hover {
+  background-color: #e0e0e0;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.row{
+  display: grid;
+  margin-right: 60px;
+  margin-left: 60px;
+
+  gap: 10px;
+}
+
+  
+@media (min-width: 768px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .card {
+    width: 200px;  /* Adjust width as needed */
+  }
+}
