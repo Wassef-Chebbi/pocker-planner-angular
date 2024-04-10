@@ -23,7 +23,7 @@ const routes: Routes = [
     component: JoinSessionComponent,
   },
   {
-    path: 'session',
+    path: 'session/:id',
     component: SessionComponent,
   },
   {

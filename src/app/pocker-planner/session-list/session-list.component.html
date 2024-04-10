@@ -11,26 +11,32 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="session in list.sessions track by session.id">
-        <td class="session-list left"><strong>trtrtr</strong></td>
-        <td class="session-list center"><strong>yryryr</strong></td>
-        <td class="session-list right">
-          <button
-            type="button"
-            class="btn btn-primary"
-            ng-click="list.open(session)"
-          >
-            Open
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            ng-click="list.join(session)"
-          >
-            Join
-          </button>
-        </td>
-      </tr>
+      <ng-container *ngFor="let room of rooms">
+        <tr>
+          <td class="session-list left">
+            <strong>{{ room.name }}</strong>
+          </td>
+          <td class="session-list center">
+            <strong>the count of the list of members</strong>
+          </td>
+          <td class="session-list right">
+            <button
+              type="button"
+              class="btn btn-primary"
+              ng-click="list.open(session)"
+            >
+              Open
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              ng-click="list.join(session)"
+            >
+              Join
+            </button>
+          </td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>

@@ -8,10 +8,10 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { RegisterComponent } from './register/register.component';
 import { SignInDashboardComponent } from './dashboard/sign-in-dashboard/sign-in-dashboard.component';
 import { HomeDashComponent } from './dashboard/home-dash/home-dash.component';
-import { Session } from './Models/session.model';
 
-import { ListSessionComponent } from './dashboard/list-session/list-session.component';
-import { EditSessionComponent } from './dashboard/editsession/editsession.component';
+
+
+
 
 
 import { CreateSessionComponent } from './pocker-planner/create-session/create-session.component';
@@ -31,8 +31,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'sign-in-dashboard', component: SignInDashboardComponent },
   { path: 'dashboard', component: HomeDashComponent },
-  { path: 'list-sessions', component: ListSessionComponent },
-  { path: 'edit-session/:id', component: EditSessionComponent },
+
 
 ];
 

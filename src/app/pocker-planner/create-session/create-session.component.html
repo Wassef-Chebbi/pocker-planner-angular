@@ -6,7 +6,7 @@
           <div class="card mb-5">
             <div class="card-body p-sm-5">
               <h2 class="text-center mb-4">Create Session</h2>
-              <form method="post">
+              <form method="post" [formGroup]="newRoom">
                 <div class="mb-3">
                   <label class="form-label">Session Name</label
                   ><input
@@ -15,11 +15,12 @@
                     type="text"
                     name="name"
                     placeholder="Name"
+                    formControlName="name"
                   />
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Card Types</label
-                  ><select class="form-select">
+                  ><select class="form-select" formControlName="cardSet">
                     <optgroup label="This is a group">
                       <option value="1" selected>1,2,3,5,8,13,20,40,100</option>
                       <option value="2">1,2,3,5</option>
@@ -38,7 +39,11 @@
                   </select>
                 </div>
                 <div>
-                  <button class="btn btn-primary d-block w-100" type="submit">
+                  <button
+                    class="btn btn-primary d-block w-100"
+                    type="submit"
+                    (click)="create()"
+                  >
                     Create
                   </button>
                 </div>

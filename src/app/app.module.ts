@@ -15,8 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { EditSessionComponent } from './dashboard/editsession/editsession.component';
-import { ListSessionComponent } from './dashboard/list-session/list-session.component';
+
 import { PockerPlannerModule } from './pocker-planner/pocker-planner.module';
 import { MaterialModule } from './material.module';
 import { PockerPlannerRoutingModule } from './pocker-planner/pocker-planner-routing.module';
@@ -37,8 +36,7 @@ import { PockerPlannerRoutingModule } from './pocker-planner/pocker-planner-rout
 
 
     SidebarComponent,
-    EditSessionComponent,
-    ListSessionComponent,
+
   ],
   imports: [
     BrowserModule,
