@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RoomService } from '../../shared/services/room.service';
 
 
+
 @Component({
   selector: 'app-create-session',
   templateUrl: './create-session.component.html',
@@ -12,24 +13,42 @@ import { RoomService } from '../../shared/services/room.service';
 export class CreateSessionComponent {
 
   newRoom!: FormGroup;
+  roomId!: number;
 
-  constructor(private fb: FormBuilder, private router: Router, private roomService: RoomService) {
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private roomService: RoomService,
+  ) {
     this.newRoom = this.fb.group({
       name: [''],
       cardSet: ['1'],
-
     });
   }
 
-  ngOnInit(): void {
 
-  }
 
   create() {
     console.log(this.newRoom.value);
-    this.roomService.createRoom(this.newRoom.value).subscribe(() => {
+    this.roomService.createRoom(this.newRoom.value).subscribe({
+      next: response => {
 
+        console.log('Room created', response);
+        this.roomId = response.id;
+        localStorage.setItem('roomId', this.roomId.toString());
+        this.goToRoomPage(this.roomId);
+      },
+      error: error => {
+        console.error('There was an error updating category', error)
+      }
     });
+  }
+
+  goToRoomPage(roomId: number) {
+    const delayInMilliseconds = 1000;
+
+    setTimeout(() => {
+      this.router.navigate(['/room', roomId]);
+    }, delayInMilliseconds);
   }
 
 }

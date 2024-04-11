@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RoomService } from '../../shared/services/room.service';
 import { Room } from 'src/app/Models/room.model';
@@ -8,29 +8,43 @@ import { Room } from 'src/app/Models/room.model';
   templateUrl: './session.component.html',
   styleUrls: ['./session.component.css']
 })
-export class SessionComponent {
+export class SessionComponent implements OnInit {
+  id!: number;
   room!: Room;
+
 
   constructor(
     private route: ActivatedRoute,
     private roomService: RoomService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      console.log(params['id']);
-      this.loadRoom(params['id']);
-    });
+
+    console.log("dfsfsdfsdf");
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    //Number(localStorage.getItem('roomId'));
+    console.log(this.id);
+    this.loadRoom(this.id);
   }
 
-
-
-  loadRoom(id: number) {
-    this.roomService.findRoomById(id).subscribe((room) => {
+  async loadRoom(id: number) {
+    await this.roomService.findRoomById(id).subscribe((room) => {
       this.room = room;
+      console.log(this.room);
+    }, (error) => {
+      console.error('Error fetching room details:', error);
     });
   }
 
-
-
+  // deleteRoom(id: number) {
+  //   this.roomService.deleteRoom(id).subscribe(() => {
+  //     console.log('room deleted');
+  //   });
+  // }
 }
+
+
+
+

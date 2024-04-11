@@ -18,6 +18,7 @@ export class SessionListComponent {
 
 
   ngOnInit() {
+    console.log("onInit is called");
     this.loadRooms();
 
   }

@@ -23,11 +23,11 @@ const routes: Routes = [
     component: JoinSessionComponent,
   },
   {
-    path: 'session/:id',
+    path: 'room/:id',
     component: SessionComponent,
   },
   {
-    path: 'sessions',
+    path: 'rooms',
     component: SessionListComponent,
   },
   {

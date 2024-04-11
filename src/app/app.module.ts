@@ -13,12 +13,10 @@ import { RegisterComponent } from './register/register.component';
 import { SignInDashboardComponent } from './dashboard/sign-in-dashboard/sign-in-dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { SidebarComponent } from './sidebar/sidebar.component';
-
 import { PockerPlannerModule } from './pocker-planner/pocker-planner.module';
 import { MaterialModule } from './material.module';
-import { PockerPlannerRoutingModule } from './pocker-planner/pocker-planner-routing.module';
+
 
 
 @NgModule({
@@ -32,9 +30,6 @@ import { PockerPlannerRoutingModule } from './pocker-planner/pocker-planner-rout
     SignInComponent,
     RegisterComponent,
     SignInDashboardComponent,
-
-
-
     SidebarComponent,
 
   ],
@@ -46,7 +41,6 @@ import { PockerPlannerRoutingModule } from './pocker-planner/pocker-planner-rout
     ReactiveFormsModule,
     MaterialModule,
     PockerPlannerModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
