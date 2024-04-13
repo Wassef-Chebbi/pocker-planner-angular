@@ -1,15 +1,21 @@
 
 export class Room {
-  idSession!: number;
-  name!: string;
-  startTime!: Date;
-  endTime!: Date;
-  description!: string;
-  status: RoomStatus = RoomStatus.ACTIVE;
+  roomId!: number;
+  roomName!: string;
+  roomCardSet!: number;
+  members!: any[];
+  votes!: Vote[];
 
 }
-export enum RoomStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE',
-  PENDING = 'PENDING'
+export interface User {
+  userId: number;
+  userName: string;
+  // Add any other properties from the User entity
+}
+
+export interface Vote {
+  voteId: number;
+  voteValue: number;
+  highlighted: boolean;
+  // Add any other properties from the Vote entity
 }

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Params } from '@angular/router';
 import { RoomService } from '../../shared/services/room.service';
 import { Room } from 'src/app/Models/room.model';
+import { Observable, catchError, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-session',
@@ -10,7 +11,11 @@ import { Room } from 'src/app/Models/room.model';
 })
 export class SessionComponent implements OnInit {
   id!: number;
-  room!: Room;
+  room!: any;
+  members!: any[];
+  dataLoaded = false;
+  userStory = 'https://via.placeholder.com/150';
+  Link!: string;
 
 
   constructor(
@@ -19,27 +24,43 @@ export class SessionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-
-    //this.id = Number(localStorage.getItem('roomId'));
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.loadRoom(this.id);
+    this.joinLink(this.id);
+
   }
 
+
+
   loadRoom(id: number) {
-    this.roomService.findRoomById(id).subscribe((room) => {
-      this.room = room;
-      console.log(this.room);
-    }, (error) => {
-      console.error('Error fetching room details:', error);
+    this.roomService.findRoomById(id).subscribe({
+      next: (room) => {
+        if (room) {
+          this.room = room;
+          this.members = room.members;
+          this.dataLoaded = true;
+          console.log(this.room);
+
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching room details:', error);
+      }
     });
   }
 
-  // deleteRoom(id: number) {
-  //   this.roomService.deleteRoom(id).subscribe(() => {
-  //     console.log('room deleted');
-  //   });
-  // }
+  deleteRoom(id: number) {
+    this.roomService.deleteRoom(id).subscribe(() => {
+      console.log('room deleted');
+    });
+  }
+
+  joinLink(id: number) {
+    this.Link = `http://localhost:4200/room/${id}`;
+
+  }
+
+
 }
 
 

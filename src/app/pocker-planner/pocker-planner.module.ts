@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CreateSessionComponent } from './create-session/create-session.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 import { MaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +35,8 @@ import { VoteComponent } from './vote/vote.component';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    RouterModule
+    RouterModule,
+    QRCodeModule
   ]
 })
 export class PockerPlannerModule { }
