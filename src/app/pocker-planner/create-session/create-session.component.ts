@@ -32,8 +32,8 @@ export class CreateSessionComponent {
     this.roomService.createRoom(this.newRoom.value).subscribe({
       next: response => {
 
-        console.log('Room created', response);
-        this.roomId = response.id;
+
+        this.roomId = response.roomid;
         localStorage.setItem('roomId', this.roomId.toString());
         this.goToRoomPage(this.roomId);
       },
@@ -44,11 +44,15 @@ export class CreateSessionComponent {
   }
 
   goToRoomPage(roomId: number) {
+    console.log("sdsdsdfewrEFWSFEWEFWEFWEFW");
     const delayInMilliseconds = 1000;
-
     setTimeout(() => {
+      console.log("executing navigate");
       this.router.navigate(['/room', roomId]);
     }, delayInMilliseconds);
   }
+  // goToRoomPage(roomId: number) {
+  //   this.router.navigate(['/room', roomId]);
+  // }
 
 }

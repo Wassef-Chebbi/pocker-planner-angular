@@ -8,7 +8,7 @@ import { WebSocketSubject, webSocket } from 'rxjs/webSocket';
 })
 export class WebsocketService {
 
-  private url = 'ws://localhost:8080/pocker'; // Replace with your server URL
+  private url = 'ws://localhost:8080/pocker';
   private socket$!: WebSocketSubject<any>;
 
   constructor() { }

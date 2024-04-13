@@ -16,21 +16,18 @@ export class SessionComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private roomService: RoomService
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
 
-    console.log("dfsfsdfsdf");
+
+    //this.id = Number(localStorage.getItem('roomId'));
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    //Number(localStorage.getItem('roomId'));
-    console.log(this.id);
     this.loadRoom(this.id);
   }
 
-  async loadRoom(id: number) {
-    await this.roomService.findRoomById(id).subscribe((room) => {
+  loadRoom(id: number) {
+    this.roomService.findRoomById(id).subscribe((room) => {
       this.room = room;
       console.log(this.room);
     }, (error) => {

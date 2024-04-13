@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class RoomService {
 
-  private baseUrl = 'http://localhost:8080/api/session';
+  private baseUrl = 'http://localhost:8080/api/room';
   constructor(private http: HttpClient,) { }
 
 
@@ -18,20 +18,20 @@ export class RoomService {
 
 
   createRoom(room: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/create`, room);
+    return this.http.post(`${this.baseUrl}/add`, room);
   }
 
   findRoomById(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/rooms/${id}`);
+    return this.http.get(`${this.baseUrl}/getById/${id}`);
 
   }
 
   getAllRooms(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/rooms`);
+    return this.http.get(`${this.baseUrl}/getAll`);
   }
 
   deleteRoom(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/rooms/${id}`);
+    return this.http.delete(`${this.baseUrl}/delete/${id}`);
   }
 
 
