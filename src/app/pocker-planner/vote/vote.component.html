@@ -23,7 +23,7 @@
   <ng-container *ngFor="let item of cards">
     <button
       class="card-button"
-      (click)="vote(item)"
+      (click)="manageVote(item)"
       [class.highlighted]="item === selectedCard"
     >
       <div class="card-content">

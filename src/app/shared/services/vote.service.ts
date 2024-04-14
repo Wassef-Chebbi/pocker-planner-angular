@@ -19,4 +19,12 @@ export class VoteService {
 
     return this.http.post(`${this.baseUrl}/add`, vote);
   }
+
+  updateVote(vote: vote, voteId: number): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/update/${voteId}`, vote);
+  }
+
+  getRoomVotes(roomId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/votes/room/${roomId}`);
+  }
 }

@@ -16,7 +16,9 @@ export class VoteComponent {
   room!: Room;
   roomId!: number;
   userId!: number;
-  vot!: vote;
+
+  acutalVote = new vote();
+  voyeId = null;
 
   cards = [1, 2, 3, 5, 8, 13, 20, 40, 100];
   value = 0;
@@ -69,14 +71,55 @@ export class VoteComponent {
   //   });
   // }
 
+  manageVote(value: number) {
+    if (this.voyeId == null) {
+      this.vote(value);
+    }
+    else {
+      this.acutalVote.value = value;
+      this.updateVote(this.acutalVote, this.voyeId);
+    }
+  }
+
   vote(value: number) {
     console.log(value);
+    this.value = value;
     this.selectedCard = value;
-    this.vot = new vote();
-    this.vot.value = value;
-    this.vot.roomId = this.roomId;
-    this.vot.userId = this.userId;
-    console.log(this.vot);
+
+
+    this.acutalVote.value = value;
+    this.acutalVote.roomId = this.roomId;
+    this.acutalVote.userId = this.userId;
+
+    console.log(this.acutalVote);
+    this.voteService.addVote(this.acutalVote).subscribe({
+      next: (data) => {
+        this.voyeId = data.voteid;
+        console.log(data);
+        console.log("this is the vote id: " + this.voyeId);
+      },
+      error: (error) => {
+        console.error('Error adding vote:', error);
+      }
+    })
+
+
+  }
+
+  updateVote(vote: vote, voteId: number) {
+    this.value = vote.value;
+    this.selectedCard = vote.value;
+
+    //this.acutalVote.value = vote.value;
+    this.voteService.updateVote(this.acutalVote, voteId).subscribe({
+      next: (data) => {
+        console.log("updated Votre", data);
+        this.selectedCard = vote.value;
+      },
+      error: (error) => {
+        console.error('Error updating vote:', error);
+      }
+    });
 
 
   }

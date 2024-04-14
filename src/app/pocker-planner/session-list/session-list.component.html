@@ -2,7 +2,15 @@
   class="col-xs-12 col-md-8 col-md-offset-2"
   style="margin-left: auto; margin-right: auto"
 >
-  <table class="table table-hover">
+  <table
+    class="table table-hover"
+    style="
+      width: 700px;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+    "
+  >
     <thead>
       <tr>
         <th class="session-list left"><strong>Name</strong></th>
@@ -24,6 +32,7 @@
               type="button"
               class="btn btn-primary"
               ng-click="list.open(session)"
+              (click)="openRoom(room.roomid)"
             >
               Open
             </button>
@@ -31,6 +40,7 @@
               type="button"
               class="btn btn-primary"
               ng-click="list.join(session)"
+              (click)="joinRoom(room.roomid)"
             >
               Join
             </button>

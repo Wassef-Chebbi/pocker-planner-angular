@@ -15,7 +15,7 @@ export class JoinSessionComponent {
 
 
   username = localStorage.getItem('username') || 'Anonymous';
-  userId = 0;
+  userId !: number;
 
 
   constructor(private websocketService: WebsocketService,
@@ -58,11 +58,16 @@ export class JoinSessionComponent {
     });
   }
 
+  onUserIdInput(event: Event) {
+    this.userId = Number((event.target as HTMLInputElement).value);
+    console.log(this.userId);
+  }
+
   goToRoomPage() {
     const delayInMilliseconds = 1000;
     setTimeout(() => {
       console.log("executing navigate");
-      this.router.navigate(['vote/room', this.roomId, 'member', this.userId]);
+      this.router.navigate(['pocker/vote/room', this.roomId, 'member', this.userId]);
     }, delayInMilliseconds);
   }
 

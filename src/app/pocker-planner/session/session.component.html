@@ -7,9 +7,40 @@
         <div class="pb-2 pb-lg-1">
           <h2 class="fw-bold mb-2">{{ room.roomid }} - {{ room.name }}</h2>
         </div>
-        <div class="my-2"><h2>TIMER</h2></div>
+        <div
+          class="my-2"
+          style="align-items: center; display: block; justify-content: center"
+        >
+          <h2
+            style="align-items: center; display: block; justify-content: center"
+          >
+            <strong>{{ remainingTime || 10 }}</strong>
+          </h2>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="startTimer()"
+              style="margin: 10px"
+            >
+              Start
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="stopTimer()"
+              style="margin: 10px"
+            >
+              Stop
+            </button>
+          </div>
+        </div>
         <div class="my-2">
-          <a class="btn btn-danger fs-5 py-2 px-4" role="button" href="#"
+          <a
+            class="btn btn-danger fs-5 py-2 px-4"
+            role="button"
+            (click)="deleteRoom()"
             >Delete</a
           >
         </div>
@@ -35,14 +66,22 @@
     </div>
   </section>
   <!-- sec2: the vote result -->
-  <section class="py-4 py-xl-5" style="margin-left: 110px; margin-right: 110px">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <p>this will display the votes</p>
-        </div>
+  <section class="row position-relative py-4 py-xl-5">
+    <!-- <p>this will display the votes</p> -->
+
+    <ng-container *ngFor="let vote of votes">
+      <div class="card-vote">
+        <span class="card-label"
+          ><h2>
+            <strong>{{ vote.value || "N/A" }}</strong>
+          </h2></span
+        >
       </div>
-    </div>
+      <div class="usr">
+        <h2 class="ng-binding">{{ vote.userId }}</h2>
+      </div>
+    </ng-container>
+    <!-- end of this section -->
   </section>
 
   <!-- sec 3 -->

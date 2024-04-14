@@ -1,4 +1,5 @@
 export class vote {
+    voteId!: number;
     value!: number;
     roomId!: number;
     userId!: number;

@@ -25,10 +25,9 @@
 }
 
 .row{
-  display: grid;
+  display: flex;
   margin-right: 60px;
   margin-left: 60px;
-
   gap: 10px;
 }
 

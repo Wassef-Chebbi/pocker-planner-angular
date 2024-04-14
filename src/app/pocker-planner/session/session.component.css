@@ -28,3 +28,47 @@ ul {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+.card-vote {
+    display: block;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.9s ease-in-out;
+
+    border: 2px solid #0F1593;
+
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 135px;
+    height: 220px;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-right: 110px;
+    margin-left: 110px;
+  }
+
+  @media (min-width: 768px) {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+
+.usr {
+display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-label{
+  text-align: center;
+}

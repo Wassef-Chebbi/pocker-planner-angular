@@ -3,6 +3,10 @@ import { ActivatedRoute, NavigationEnd, Params } from '@angular/router';
 import { RoomService } from '../../shared/services/room.service';
 import { Room } from 'src/app/Models/room.model';
 import { Observable, catchError, map, of } from 'rxjs';
+import { VoteService } from '../../shared/services/vote.service';
+import { vote } from '../models/vote';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-session',
@@ -10,24 +14,49 @@ import { Observable, catchError, map, of } from 'rxjs';
   styleUrls: ['./session.component.css']
 })
 export class SessionComponent implements OnInit {
-  id!: number;
+
+  dataLoaded = false;
+
+  roomId!: number;
   room!: any;
   members!: any[];
-  dataLoaded = false;
+  votes!: vote[];
+
   userStory = 'https://via.placeholder.com/150';
+
   Link!: string;
+
+  remainingTime!: number;
+  timer: any;
 
 
   constructor(
     private route: ActivatedRoute,
-    private roomService: RoomService
+    private roomService: RoomService,
+    private voteService: VoteService, private router: Router,
   ) { }
 
   ngOnInit() {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadRoom(this.id);
-    this.joinLink(this.id);
+    this.roomId = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadRoom(this.roomId);
+    this.joinLink(this.roomId);
+    this.getRoomVotes(this.roomId);
 
+  }
+
+
+  startTimer() {
+    this.remainingTime = 10;
+    this.timer = setInterval(() => {
+      this.remainingTime -= 1;
+      if (this.remainingTime <= 0) {
+        clearInterval(this.timer);
+      }
+    }, 1000);
+  }
+
+  stopTimer() {
+    clearInterval(this.timer);
   }
 
 
@@ -49,15 +78,35 @@ export class SessionComponent implements OnInit {
     });
   }
 
-  deleteRoom(id: number) {
-    this.roomService.deleteRoom(id).subscribe(() => {
+  deleteRoom() {
+    this.roomService.deleteRoom(this.roomId).subscribe(() => {
+
+
       console.log('room deleted');
     });
+    const delayInMilliseconds = 1000;
+    setTimeout(() => {
+      console.log("executing navigate");
+      this.router.navigate(['pocker/create']);
+    }, delayInMilliseconds);
   }
 
   joinLink(id: number) {
-    this.Link = `http://localhost:4200/join/${id}`;
+    this.Link = `http://localhost:4200/pocker/join/${id}`;
 
+  }
+
+
+  getRoomVotes(id: number) {
+    this.voteService.getRoomVotes(id).subscribe({
+      next: (votes) => {
+        this.votes = votes;
+        console.log(votes);
+      },
+      error: (error) => {
+        console.error('Error fetching votes:', error);
+      }
+    });
   }
 
 

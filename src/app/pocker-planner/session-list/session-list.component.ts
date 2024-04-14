@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RoomService } from '../../shared/services/room.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class SessionListComponent {
 
   constructor(
 
-    private roomService: RoomService
+    private roomService: RoomService,
+    private router: Router,
   ) { }
 
 
@@ -30,6 +32,23 @@ export class SessionListComponent {
       this.rooms = rooms;
       console.log(this.rooms);
     });
+  }
+
+
+  openRoom(roomId: string) {
+    const delayInMilliseconds = 1000;
+    setTimeout(() => {
+      console.log("executing navigate");
+      this.router.navigate(['pocker/room', roomId]);
+    }, delayInMilliseconds);
+  }
+
+  joinRoom(roomId: string) {
+    const delayInMilliseconds = 1000;
+    setTimeout(() => {
+      console.log("executing navigate");
+      this.router.navigate(['pocker/join', roomId]);
+    }, delayInMilliseconds);
   }
 
 }

@@ -47,7 +47,7 @@ export class CreateSessionComponent {
     const delayInMilliseconds = 1000;
     setTimeout(() => {
       console.log("executing navigate");
-      this.router.navigate(['/room', roomId]);
+      this.router.navigate(['pocker/room', roomId]);
     }, delayInMilliseconds);
   }
   // goToRoomPage(roomId: number) {
