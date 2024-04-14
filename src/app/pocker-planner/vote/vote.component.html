@@ -20,44 +20,17 @@
 </section>
 
 <section class="row position-relative py-4 py-xl-5">
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
-  <button class="card-button">
-    <div class="card-content">
-      <p>{{ "value" }}</p>
-    </div>
-  </button>
+  <ng-container *ngFor="let item of cards">
+    <button
+      class="card-button"
+      (click)="vote(item)"
+      [class.highlighted]="item === selectedCard"
+    >
+      <div class="card-content">
+        <h2>
+          <strong>{{ item }}</strong>
+        </h2>
+      </div>
+    </button>
+  </ng-container>
 </section>

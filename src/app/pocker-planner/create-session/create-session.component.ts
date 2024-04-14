@@ -31,10 +31,9 @@ export class CreateSessionComponent {
     console.log(this.newRoom.value);
     this.roomService.createRoom(this.newRoom.value).subscribe({
       next: response => {
-
-
+        console.log(response);
         this.roomId = response.roomid;
-        localStorage.setItem('roomId', this.roomId.toString());
+        //localStorage.setItem('roomId', this.roomId.toString());
         this.goToRoomPage(this.roomId);
       },
       error: error => {

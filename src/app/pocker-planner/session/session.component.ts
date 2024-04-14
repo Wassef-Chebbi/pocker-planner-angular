@@ -56,7 +56,7 @@ export class SessionComponent implements OnInit {
   }
 
   joinLink(id: number) {
-    this.Link = `http://localhost:4200/room/${id}`;
+    this.Link = `http://localhost:4200/join/${id}`;
 
   }
 

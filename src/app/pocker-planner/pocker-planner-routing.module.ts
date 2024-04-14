@@ -19,11 +19,11 @@ const routes: Routes = [
     component: CreateSessionComponent,
   },
   {
-    path: 'join',
+    path: 'join/:id',//roomId
     component: JoinSessionComponent,
   },
   {
-    path: 'room/:id',
+    path: 'room/:id',//roomId
     component: SessionComponent,
   },
   {
@@ -31,7 +31,7 @@ const routes: Routes = [
     component: SessionListComponent,
   },
   {
-    path: 'vote',
+    path: 'vote/room/:roomId/member/:userId',//roomId
     component: VoteComponent,
   },
 
