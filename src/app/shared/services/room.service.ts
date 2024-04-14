@@ -34,5 +34,15 @@ export class RoomService {
     return this.http.delete(`${this.baseUrl}/delete/${id}`);
   }
 
+  addMember(roomId: number, userId: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/join/room/${roomId}/user/${userId}`, null)
+      .pipe(
+        catchError((error) => {
+          console.error('Error adding member:', error);
+          return throwError(() => error);
+        })
+      );
+  }
+
 
 }
